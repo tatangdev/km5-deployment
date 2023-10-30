@@ -1,4 +1,4 @@
-name: Deploy to Railway DEV Environment
+name: Deploy to Railway(prod)
 
 on:
   push:
