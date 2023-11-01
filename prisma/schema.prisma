@@ -16,3 +16,16 @@ model User {
   email    String  @unique
   password String
 }
+
+model Post {
+  id    Int     @id @default(autoincrement())
+  title String?
+  body  String
+}
+
+model Comments {
+  id      Int    @id @default(autoincrement())
+  post_id Int
+  user_id Int
+  comment String
+}
