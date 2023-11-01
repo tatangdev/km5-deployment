@@ -26,6 +26,8 @@ jobs:
 
       - name: Run Migration
         run: railway run npx prisma migrate deploy --service ${{ secrets.RAILWAY_SERVICE_ID }}
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_DEV_TOKEN }}
 
       - name: Deploy to Railway
         run: railway up --service ${{ secrets.RAILWAY_SERVICE_ID }}
