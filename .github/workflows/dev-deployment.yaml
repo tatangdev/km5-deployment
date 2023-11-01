@@ -28,9 +28,8 @@ jobs:
         run: echo "railway_service_id=${{ secrets.RAILWAY_SERVICE_ID }}" >> $GITHUB_ENV
 
       - name: Run Migration
-        run: railway run npx prisma migrate deploy
+        run: railway run --service ${{ secrets.RAILWAY_SERVICE_ID }} npx prisma migrate deploy
         env:
-          # RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_DEV_TOKEN }}
 
       - name: Deploy to Railway
