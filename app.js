@@ -32,7 +32,9 @@ app.get('/', (req, res) => {
         status: true,
         message: 'hello world!',
         error: null,
-        data: null
+        data: {
+            env: ENV
+        }
     });
 });
 
@@ -48,9 +50,7 @@ app.use((req, res, next) => {
         status: false,
         message: 'Not Found!',
         error: null,
-        data: {
-            env: ENV
-        }
+        data: null
     });
 });
 
@@ -60,7 +60,9 @@ app.use((err, req, res, next) => {
         status: false,
         message: 'Internal Server Error',
         error: err.message,
-        data: null
+        data: {
+            env: ENV
+        }
     });
 });
 
