@@ -27,14 +27,11 @@ app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
 
 app.get('/', (req, res) => {
-    console.log(name);
     return res.json({
         status: true,
         message: 'hello world!',
         error: null,
-        data: {
-            env: RAILWAY_ENVIRONMENT_NAME
-        }
+        data: null
     });
 });
 
@@ -60,9 +57,7 @@ app.use((err, req, res, next) => {
         status: false,
         message: 'Internal Server Error',
         error: err.message,
-        data: {
-            env: RAILWAY_ENVIRONMENT_NAME
-        }
+        data: null
     });
 });
 
