@@ -48,7 +48,9 @@ app.use((req, res, next) => {
         status: false,
         message: 'Not Found!',
         error: null,
-        data: null
+        data: {
+            env: ENV
+        }
     });
 });
 
